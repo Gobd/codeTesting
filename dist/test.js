@@ -1,3 +1,4 @@
+// this is a webworker!
 self.onmessage = function(oEvent) {
     self.importScripts('chai.js', 'mocha.js');
     mocha.setup({

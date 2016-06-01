@@ -7,38 +7,39 @@
     </head>
     <body ng-app="app">
         <div ng-controller="main">
-            {{test}}
             <div ng-model="oneText" ui-ace="{mode: 'javascript', workerPath: './js'}"></div>
             <input type="submit" value="Submit" ng-click="runTest(oneText)">
             Runs webworker when pressed, can pass in parameters too!
-            <h1>Passed Tests</h1>
-            <div class="pass" ng-repeat="pass in results.pass">
-                Title:
-                {{pass.title}}<br/>
-                Body:
-                <pre>{{pass.body}}</pre><br/>
-                Speed:
-                {{pass.speed}}<br/>
-                Passed:
-                {{pass.passed}}<br/>
-            </div>
-            <h1>Failed Tests</h1>
-            <div class="pass" ng-repeat="fail in results.fail">
-                Title:
-                {{fail.title}}<br/>
-                Body:
-                <pre>{{fail.body}}</pre><br/>
-                Actual:
-                {{fail.actual}}<br/>
-                Expected:
-                {{fail.expected}}<br/>
-                Passed:
-                {{fail.passed}}<br/>
-                Message:
-                {{fail.message}}<br/>
-            </div>
 
+            <div>
+                <h1>Passed Tests</h1>
+                <div ng-repeat="pass in results.pass">
+                    Title:
+                    {{pass.title}}</br>
+                <pre>
+            Body: {{pass.body}}</br>
+          </pre>
+                Arguments:
+                {{pass.passed}}</br>
         </div>
-        <script src="./js/js.min.js" charset="utf-8"></script>
-    </body>
+        <h1>Failed Tests</h1>
+        <div ng-repeat="fail in results.fail">
+            Title:
+            {{fail.title}}</br>
+        <pre>
+            Body: {{fail.body}}</br>
+          </pre>
+        Arguments:
+        {{fail.passed}}</br>
+    Actual:
+    {{fail.actual}}</br>
+Expected:
+{{fail.expected}}</br>
+</div>
+
+</div>
+
+</div>
+<script src="./js/js.min.js" charset="utf-8"></script>
+</body>
 </html>
