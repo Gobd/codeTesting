@@ -3110,8 +3110,10 @@ function JSONReporter(runner) {
     passes.push(test);
     GLOBALOBJ.pass.push({
       title: test.title,
+      body: test.body,
       speed: test.speed,
-      state: test.state
+      state: test.state,
+      passed: test.body.match(/(run)\((.*?)\)/i)[2]
     })
   });
 
@@ -3119,10 +3121,12 @@ function JSONReporter(runner) {
     failures.push(test);
     GLOBALOBJ.fail.push({
       title: test.title,
+      body: test.body,
       actual: test.err.actual,
       expected: test.err.expected,
       message: test.err.message,
-      stack: test.err.stack
+      stack: test.err.stack,
+      passed: test.body.match(/(run)\((.*?)\)/i)[2]
     })
   });
 
