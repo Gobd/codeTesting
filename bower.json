@@ -1,0 +1,24 @@
+{
+  "name": "testing-code",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Brian Kemper <bkemper@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6",
+    "ng-webworker": "^0.2.3",
+    "angular-ui-ace": "bower",
+    "ace-builds": "^1.2.3",
+    "mocha": "^2.5.3"
+  }
+}
