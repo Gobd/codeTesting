@@ -1,20 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="/css/css.min.css" charset="utf-8">
-  </head>
-  <body ng-app="app">
-    <div ng-controller="main">
-      {{test}}
-      <div ng-model="oneText" ui-ace="{mode: 'javascript', workerPath: './js'}"></div>
-      <input type="submit" value="Submit" ng-click="runTest(oneText)">
-      Runs webworker when pressed, can pass in parameters too!
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="/css/css.min.css" charset="utf-8">
+    </head>
+    <body ng-app="app">
+        <div ng-controller="main">
+            {{test}}
+            <div ng-model="oneText" ui-ace="{mode: 'javascript', workerPath: './js'}"></div>
+            <input type="submit" value="Submit" ng-click="runTest(oneText)">
+            Runs webworker when pressed, can pass in parameters too!
 
+            <div>
+                <h1>Passed Tests</h1>
+                <div ng-repeat="test in results.pass">
+                    Title:
+                    {{test.title}}</br>
+                Arguments:
+                {{test.arguments}}</br>
+        </div>
+        <h1>Failed Tests</h1>
+        <div ng-repeat="test in results.fail">
+            Title:
+            {{test.title}}<br/>
+            <pre>
+            {{test.body}}
+          </pre>
+            <br>
+                Arguments:
+                {{test.arguments}}</br>
+            Actual:
+            {{test.actual}}</br>
+        Expected:
+        {{test.expected}}</br>
+    Message:
+    {{test.message}}</br>
+Stack:
+{{test.stack}}</br>
+</div>
 
+</div>
 
-    </div>
+</div>
 <script src="./js/js.min.js" charset="utf-8"></script>
-  </body>
+</body>
 </html>

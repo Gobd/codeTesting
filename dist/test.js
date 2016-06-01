@@ -36,5 +36,6 @@ self.onmessage = function(oEvent) {
         clearInterval(dataInterval);
     }, 2200);
 
-    var dataInterval = setInterval(getData, 100, mocha.run());
+    var results = mocha.run();
+    var dataInterval = setInterval(getData, 100, results);
 };

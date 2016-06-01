@@ -3113,7 +3113,7 @@ function JSONReporter(runner) {
       body: test.body,
       speed: test.speed,
       state: test.state,
-      passed: test.body.match(/(run)\((.*?)\)/i)[2]
+      arguments: test.body.match(/(run)\((.*?)\)/i)[2]
     })
   });
 
@@ -3126,7 +3126,7 @@ function JSONReporter(runner) {
       expected: test.err.expected,
       message: test.err.message,
       stack: test.err.stack,
-      passed: test.body.match(/(run)\((.*?)\)/i)[2]
+      arguments: test.body.match(/(run)\((.*?)\)/i)[2]
     })
   });
 
