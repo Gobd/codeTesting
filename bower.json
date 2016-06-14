@@ -19,5 +19,5 @@
     "ng-webworker": "^0.2.3",
     "angular-ui-ace": "bower",
     "ace-builds": "^1.2.3"
-  }
+    }
 }

@@ -1,6 +1,5 @@
 // this is a webworker!
 self.onmessage = function(oEvent) {
-    self.importScripts('chai.js', 'mocha.js');
     mocha.setup({
         ui: 'bdd',
         reporter: 'json'
@@ -14,15 +13,7 @@ self.onmessage = function(oEvent) {
         return eval('(' + oEvent.data + ')(' + args + ')'); // jshint ignore:line
     }
 
-    describe("fn", function() {
-        'use strict';
-        it("this should be true", function() {
-            expect(run(3)).to.equal(6);
-        });
-        it("this should be false", function() {
-            expect(run(1)).to.equal(6);
-        });
-    });
+    //injectHere
 
     var getData = function(data) {
         if (data.count === data.total) {

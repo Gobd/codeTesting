@@ -783,7 +783,6 @@ module.exports = function(suite) {
 };
 
 },{"../suite":37,"../test":38,"./common":9,"escape-string-regexp":49}],9:[function(require,module,exports){
-'use strict';
 
 /**
  * Functions common to more than one interface.
@@ -3125,7 +3124,6 @@ function JSONReporter(runner) {
       actual: test.err.actual,
       expected: test.err.expected,
       message: test.err.message,
-      stack: test.err.stack,
       arguments: test.body.match(/(run)\((.*?)\)/i)[2]
     })
   });
@@ -6632,7 +6630,6 @@ exports.stackTraceFilter = function() {
 
 }).call(this,require('_process'),require("buffer").Buffer)
 },{"_process":58,"buffer":45,"debug":2,"fs":43,"glob":43,"path":43,"to-iso-string":72,"util":75}],40:[function(require,module,exports){
-'use strict'
 
 exports.toByteArray = toByteArray
 exports.fromByteArray = fromByteArray
@@ -6778,7 +6775,6 @@ BrowserStdout.prototype._write = function(chunks, encoding, cb) {
 arguments[4][41][0].apply(exports,arguments)
 },{"dup":41}],44:[function(require,module,exports){
 (function (global){
-'use strict';
 
 var buffer = require('buffer');
 var Buffer = buffer.Buffer;
@@ -6898,7 +6894,6 @@ exports.allocUnsafeSlow = function allocUnsafeSlow(size) {
  */
 /* eslint-disable no-proto */
 
-'use strict'
 
 var base64 = require('base64-js')
 var ieee754 = require('ieee754')
@@ -9343,7 +9338,6 @@ function objectToString(o) {
 }(this));
 
 },{}],49:[function(require,module,exports){
-'use strict';
 
 var matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g;
 
@@ -10230,7 +10224,6 @@ exports.EOL = '\n';
 
 },{}],57:[function(require,module,exports){
 (function (process){
-'use strict';
 
 if (!process.version ||
     process.version.indexOf('v0.') === 0 ||
@@ -10511,7 +10504,6 @@ module.exports = require("./lib/_stream_duplex.js")
 // prototypally inherits from Readable, and then parasitically from
 // Writable.
 
-'use strict';
 
 /*<replacement>*/
 
@@ -10586,7 +10578,6 @@ function forEach(xs, f) {
 // basically just the most minimal sort of Transform stream.
 // Every written chunk gets output as-is.
 
-'use strict';
 
 module.exports = PassThrough;
 
@@ -10610,7 +10601,6 @@ PassThrough.prototype._transform = function (chunk, encoding, cb) {
 };
 },{"./_stream_transform":65,"core-util-is":47,"inherits":53}],64:[function(require,module,exports){
 (function (process){
-'use strict';
 
 module.exports = Readable;
 
@@ -11547,7 +11537,6 @@ function indexOf(xs, x) {
 // would be consumed, and then the rest would wait (un-transformed) until
 // the results of the previous transformed chunk were consumed.
 
-'use strict';
 
 module.exports = Transform;
 
@@ -11691,7 +11680,6 @@ function done(stream, er) {
 // Implement an async ._write(chunk, encoding, cb), and it'll handle all
 // the drain event emission and buffering.
 
-'use strict';
 
 module.exports = Writable;
 
