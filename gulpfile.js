@@ -44,9 +44,9 @@ gulp.task('css', function() {
 });
 
 
-//jasmine, jasmine-html, then boot
 gulp.task('js', function() {
     return gulp.src(mainBowerFiles('**/*.js').concat(['./src/**/*.js', '!./src/worker-javascript.js']))
+    .pipe(print())
         // .pipe(order([
         //     "**/jquery3rc1.js", "**/app.js", "**/*.js"
         // ]))
