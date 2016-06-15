@@ -1,17 +1,14 @@
 self.onmessage = function(oEvent) {
-    mocha.setup({
-        ui: 'bdd',
-        reporter: 'json'
-    });
+    mocha.setup('bdd');
     var expect = chai.expect;
 
     /*injectHere*/
 
-    var getData = function(data) {
-        if (data.count === data.total) {
+    var getData = function(results) {
+        if (results.count === results.total) {
             clearInterval(dataInterval);
-            delete data.total;
-            self.postMessage(data);
+            delete results.total;
+            self.postMessage(results);
         }
     };
 
@@ -22,3 +19,6 @@ self.onmessage = function(oEvent) {
     var results = mocha.run();
     var dataInterval = setInterval(getData, 100, results);
 };
+
+// /\(eval at <anonymous>.*?\:.*?\:/g
+// then subtract 6 from line and 2 from character to get where stack error happens

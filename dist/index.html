@@ -8,8 +8,8 @@
     <body ng-app="app">
         <div ng-controller="main">
             {{test}}
-            <div ng-model="oneText" ui-ace="{mode: 'javascript', workerPath: './js'}"></div>
-            <input type="submit" value="Submit" ng-click="runTest(oneText)">
+            <div ng-model="userInput" ui-ace="{mode: 'javascript', workerPath: './js'}"></div>
+            <input type="submit" value="Submit" ng-click="runTest()">
             Runs webworker when pressed, can pass in parameters too!
 
             <div>
