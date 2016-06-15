@@ -8,10 +8,8 @@ self.onmessage = function(oEvent) {
 
     // pass run the arguments that need to passed to the user-inputted function
     // run will return the result of invoking that function with those arguments
-    function run() {
-        var args = Array.prototype.slice.call(arguments, 0);
-        return eval('(' + oEvent.data + ')(' + args + ')'); // jshint ignore:line
-    }
+    // console.log(oEvent.data);
+    // var test = eval(oEvent.data); // jshint ignore:line
 
     //injectHere
 
