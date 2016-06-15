@@ -15,7 +15,6 @@ angular.module('app').controller('main', function($scope, Webworker, $http, $q) 
     var testData = `
     describe("fn", function() {
         var x;
-        var res;
         it("this should be true", function() {
             eval(dataz)
             expect(add(4)).to.equal(7);
@@ -27,26 +26,25 @@ angular.module('app').controller('main', function($scope, Webworker, $http, $q) 
     });`
 
     var webWorker = $http.get('./test.js');
-    var chai = $http.get('./chai.js');
-    var mocha = $http.get('./mocha.js');
+    var mochaChaiMin = $http.get('./mochaChaiMin.js');
 
     $scope.runTest = function() {
-        $q.all([chai, mocha, webWorker]).then(function(data) {
-            var chaiData = data[0].data;
-            var mochaData = data[1].data;
-            var webWorkerData = data[2].data;
-            var data = webWorkerData + chaiData + mochaData;
-            var injectPos = data.indexOf('//injectHere');
-            data = data.substr(0, injectPos) + testData.replace(/dataz/g, "`" + $scope.oneText + "`") + data.substr(injectPos);
+        $q.all([mochaChaiMin, webWorker]).then(function(data) {
+            var mochaChaiMin = data[0].data;
+            var webWorkerData = data[1].data;
+            var injectPos = webWorkerData.indexOf('/*injectHere*/');
+            var userData = $scope.oneText.replace(/\n/g, '')
+            data = webWorkerData.substr(0, injectPos) + testData.replace(/dataz/g, "'" + userData + "'") + webWorkerData.substr(injectPos) + mochaChaiMin;
 
             var myWorker = Webworker.create(Worker.createURL(data));
             myWorker.run().then(function(result) {
                 $scope.results = result;
-                console.log(result)
             });
 
         })
     }
+
+
 
 
 });
